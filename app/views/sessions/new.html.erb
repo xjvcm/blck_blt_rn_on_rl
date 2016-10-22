@@ -1,0 +1,68 @@
+<h3>this is my working root</h3>
+
+<h1>Welcome!</h1>
+
+<div>
+<h2>Register</h2>
+<% if flash[:reg_errors] %>
+  <% flash[:reg_errors].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %> 
+  <form action='/users' method='post'>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <p>
+      <label for="name">Name: </label>
+      <input id="name" type='name' name="user[name]" placeholder="Enter Name" />
+  </p>
+  <p>
+    <label for="alias">Alias: </label>
+    <input id="alias" type='alias' name="user[alias]" placeholder="Enter Alias" />
+  </p>
+  <p>
+    <label for="email">Email: </label>
+    <input id="email" type='email' name="user[email]" placeholder="Enter Email" />
+  </p>
+  <p>
+    <label for="password">Password: </label>
+    <input id="password" type='password' name="user[password]" placeholder="Password" />
+  </p>
+  *Password should be at least 8 characters
+  <p>
+      <label for="password_confirmation">Confirm PW</label>
+    <input type='password' name="user[password_confirmation]" placeholder="Password Confirmation" />
+  </p>
+    <button type='submit'>Register</button>
+    
+</form>
+<br>
+<br>
+<hr>
+<br>
+<br>
+</div>
+<div>
+<h2>Log In</h2>
+
+<% if flash[:error_login] %>
+  <% flash[:error_login].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<form action='/sessions' method='POST'>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <p>
+      <label for="email">Email</label>
+      <input id="email" type='email' name='email' placeholder="Enter Email" />
+  </p>
+  <p>
+      <label for="password">Password</label>
+    <input type='password' name='password' placeholder="Password"  />
+  </p>
+    <button type='submit'>Log In</button>
+    <!-- <input type='submit' value='Log In'/> -->
+</form>
+
+
+</div>

@@ -1,0 +1,19 @@
+<a href="/users/<%= @idea.user.id %>/"><%= @idea.user.name %></a> Says: <%= @idea.content %>
+<br>
+People who liked this post:
+
+
+ <table>
+  <tr>
+    <th>Alias</th>
+    <th>Name</th>
+  </tr>
+  <% @idea.users_liked.each do |like| %>
+  <tr>
+
+      <td><%= like.alias %></td>
+      <td><%= like.name %></td>
+  </tr>
+  <% end %>
+  
+  </table>
