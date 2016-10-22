@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to "/ideas/#{@user.id}"
+      redirect_to "/ideas/"
     else
       flash[:reg_errors] = [@user.errors.full_messages.each]
       redirect_to :back
